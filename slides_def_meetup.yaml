@@ -124,11 +124,16 @@ paths:
     - $ref: '#/parameters/upload_protocol'
   /v1/presentations/{presentationId}/pages/{pageId}:
     get:
+      tags:
+      - meetup-version
+      - presentations
       responses:
         200:
           description: Successful response
           schema:
             type: string
+      security:
+      - Oauth2: []
     parameters:
     - name: presentationId
       in: path
