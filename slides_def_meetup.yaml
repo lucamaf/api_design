@@ -126,14 +126,14 @@ paths:
     get:
       tags:
       - meetup-version
-      - presentations
       responses:
         200:
           description: Successful response
           schema:
             type: string
       security:
-      - Oauth2: []
+      - Oauth2:
+        - https://www.googleapis.com/auth/presentations
     parameters:
     - name: presentationId
       in: path
@@ -143,6 +143,7 @@ paths:
       in: path
       required: true
       type: string
+    - $ref: '#/parameters/access_token'
 definitions:
   AffineTransform:
     description: "AffineTransform uses a 3x3 matrix with an implied last row of [\
